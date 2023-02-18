@@ -1,0 +1,1 @@
+{"name":"Local: 树上背包3","url":"c:\\Users\\asus\\OneDrive\\template\\动态规划\\树上背包3.cpp","tests":[{"id":1666877618287,"input":"5 8\n1 1 2 2\n10 1 4 10 5\n1 2 3 4 5","output":"0\n10\n0\n11\n14\n0\n15\n21\n16"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"c:\\Users\\asus\\OneDrive\\template\\动态规划\\树上背包3.cpp","group":"local","local":true}
