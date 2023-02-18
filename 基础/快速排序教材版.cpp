@@ -1,13 +1,13 @@
-//¿ìËÙÅÅĞò£¨´ÓĞ¡µ½´ó£©
+//å¿«é€Ÿæ’åºï¼ˆä»å°åˆ°å¤§ï¼‰
 void quickSort(int left, int right, int arr[]) {
     if (left >= right) return;
     int i, j, base, temp;
     i = left, j = right;
-    base = arr[left];  //È¡×î×ó±ßµÄÊıÎª»ù×¼Êı
+    base = arr[left];  //å–æœ€å·¦è¾¹çš„æ•°ä¸ºåŸºå‡†æ•°
     while (i < j) {
-        while (arr[j] >= base && i < j)  //½«>= ¸Ä³É<= ±ä³É´Ó´óµ½Ğ¡
+        while (arr[j] >= base && i < j)  //å°†>= æ”¹æˆ<= å˜æˆä»å¤§åˆ°å°
             j--;
-        while (arr[i] <= base && i < j)  //½«<= ¸Ä³É>= ±ä³É´Ó´óµ½Ğ¡
+        while (arr[i] <= base && i < j)  //å°†<= æ”¹æˆ>= å˜æˆä»å¤§åˆ°å°
             i++;
         if (i < j) {
             temp = arr[i];
@@ -15,9 +15,9 @@ void quickSort(int left, int right, int arr[]) {
             arr[j] = temp;
         }
     }
-    //»ù×¼Êı¹éÎ»
+    //åŸºå‡†æ•°å½’ä½
     arr[left] = arr[i];
     arr[i] = base;
-    quickSort(left, i - 1, arr);   //µİ¹é×ó±ß
-    quickSort(i + 1, right, arr);  //µİ¹éÓÒ±ß
+    quickSort(left, i - 1, arr);   //é€’å½’å·¦è¾¹
+    quickSort(i + 1, right, arr);  //é€’å½’å³è¾¹
 }

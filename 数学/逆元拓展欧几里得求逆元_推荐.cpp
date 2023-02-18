@@ -1,13 +1,13 @@
 // O(log(n))
-// ��չŷ�����xΪa����ԪbΪģ,x,y���ó�ʼ��ʲôֵ������
-// һ������0����С���������䱾��
+// 拓展欧几里得x为a的逆元b为模,x,y不用初始化什么值都可以
+// 一个数与0的最小公倍数是其本身
 int exgcd(int a, int b, int& x, int& y) {
     if (!b) {
         x = 1, y = 0;
         return a;
     } else {
         int gcd = exgcd(b, a % b, y, x);
-        y -= x * (a / b);  // �˴�һ��Ҫ�ȳ���˲�Ȼ���ܱ����Ƚ��������
+        y -= x * (a / b);  // 此处一定要先除后乘不然可能爆精度建议加括号
         return gcd;
     }
 }

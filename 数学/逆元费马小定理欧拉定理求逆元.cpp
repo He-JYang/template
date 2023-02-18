@@ -1,7 +1,7 @@
 // O(log(n))
-// 就是快速幂且多数情况下比拓展欧几里得慢一个常数且a和mod互质
+// 灏辨槸蹇�熷箓涓斿鏁版儏鍐典笅姣旀嫇灞曟鍑犻噷寰楁參涓�涓父鏁颁笖a鍜宮od浜掕川
 int mod;
-// x是a在mod p 意义下的逆元
+// x鏄痑鍦╩od p 鎰忎箟涓嬬殑閫嗗厓
 // a*x==1(mod p) --> x=a^(p-2)mod p
 int qpow(int a, int b = mod - 2, int mod) {
     int ans = 1;

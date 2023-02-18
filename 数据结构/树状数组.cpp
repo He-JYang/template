@@ -1,19 +1,19 @@
-// # Ê÷×´Êı×é #
+// # æ ‘çŠ¶æ•°ç»„ #
 
 #include <bits/stdc++.h>
 using namespace std;
-#define lowbit(x) ((x) & (-x))  // ·µ»ØËùÊô×îĞ¡Ïß¶Î³¤¶È
+#define lowbit(x) ((x) & (-x))  // è¿”å›æ‰€å±æœ€å°çº¿æ®µé•¿åº¦
 const int N = 1e5 + 10;
 int n;
 int tree[N];
 
-inline void update(int pos, int x) {  //µ¥µãposÔö¼Óx   pos!=0 ·ñÔò»á¶Î´íÎó
+inline void update(int pos, int x) {  //å•ç‚¹poså¢åŠ x   pos!=0 å¦åˆ™ä¼šæ®µé”™è¯¯
     for (int i = pos; i <= n; i += lowbit(i)) {
         tree[i] += x;
     }
 }
 
-inline int query(int pos) {  //ÇóÇ°posÏîºÍ pos=0Ê±·µ»Ø0
+inline int query(int pos) {  //æ±‚å‰posé¡¹å’Œ pos=0æ—¶è¿”å›0
     int ans = 0;
     for (int i = pos; i; i -= lowbit(i)) {
         ans += tree[i];
@@ -21,24 +21,24 @@ inline int query(int pos) {  //ÇóÇ°posÏîºÍ pos=0Ê±·µ»Ø0
     return ans;
 }
 
-int queryi(int sum, int n = N) {  // Ïàµ±ÓÚ²éÑ¯sum[pos]<=sumµÄ×î´óÎ»ÖÃ£¬nÎªÊı×éÖĞÊıµÄ¸öÊı;
-    // Ìæ»»×¢ÊÍĞŞ¸ÄÎªsum[pos]<=sumµÄµÚÒ»´Î×î´óÎ»ÖÃ£¬¼´²»¼Æa[i]==0µÄÎ»ÖÃ
+int queryi(int sum, int n = N) {  // ç›¸å½“äºæŸ¥è¯¢sum[pos]<=sumçš„æœ€å¤§ä½ç½®ï¼Œnä¸ºæ•°ç»„ä¸­æ•°çš„ä¸ªæ•°;
+    // æ›¿æ¢æ³¨é‡Šä¿®æ”¹ä¸ºsum[pos]<=sumçš„ç¬¬ä¸€æ¬¡æœ€å¤§ä½ç½®ï¼Œå³ä¸è®¡a[i]==0çš„ä½ç½®
 
     int pos = 0;
     int now = 0;
     for (int i = 31ll; i >= 0; --i) {
         pos += 1ll << i;
-        // if (pos > n || tree[pos] + now >= sum)//µÚÒ»´Î×î´óÎ»ÖÃ
-        if (pos > n || tree[pos] + now > sum)  //×îÖÕ×î´óÎ»ÖÃ
+        // if (pos > n || tree[pos] + now >= sum)//ç¬¬ä¸€æ¬¡æœ€å¤§ä½ç½®
+        if (pos > n || tree[pos] + now > sum)  //æœ€ç»ˆæœ€å¤§ä½ç½®
             pos -= 1ll << i;
         else
             now += tree[pos];
     }
-    // return pos + 1;//µÚÒ»´Î×î´óÎ»ÖÃ
-    return pos;  //×îÖÕ×î´óÎ»ÖÃ
+    // return pos + 1;//ç¬¬ä¸€æ¬¡æœ€å¤§ä½ç½®
+    return pos;  //æœ€ç»ˆæœ€å¤§ä½ç½®
 }
 
-// µ¥µã¸üĞÂ×î´óÖµ »ò×îĞ¡Öµ
+// å•ç‚¹æ›´æ–°æœ€å¤§å€¼ æˆ–æœ€å°å€¼
 void updatemax(int x, int val) {
     while (x <= n) {
         tree[x] = max(tree[x], val);
@@ -46,7 +46,7 @@ void updatemax(int x, int val) {
     }
 }
 
-// ²éÑ¯Ç°×º×î´óÖµ »ò×îĞ¡Öµ
+// æŸ¥è¯¢å‰ç¼€æœ€å¤§å€¼ æˆ–æœ€å°å€¼
 int querymax(int x) {
     int t = 0;
     while (x) {

@@ -28,8 +28,8 @@ inline long long fast_pow(long long a, long long b, long long p) {
 
 inline long long F(long long n, long long P, long long PK) {
     if (n == 0) return 1;
-    long long rou = 1;  //Ñ­»·½Ú
-    long long rem = 1;  //ÓàÏî
+    long long rou = 1;  //å¾ªçŽ¯èŠ‚
+    long long rem = 1;  //ä½™é¡¹
     for (long long i = 1; i <= PK; i++) {
         if (i % P) rou = rou * i % PK;
     }
@@ -51,12 +51,12 @@ inline long long C_PK(long long n, long long m, long long P, long long PK) {
 long long A[1001], B[1001];
 // x=B(mod A)
 
-//À©Õ¹Â¬¿¨Ë¹¶¨Àí  /***µ÷ÓÃÕâ¸ö***/
+//æ‰©å±•å¢å¡æ–¯å®šç†  /***è°ƒç”¨è¿™ä¸ª***/
 inline long long C(long long n, long long m, long long P) {
     long long ljc = P, tot = 0;
     for (long long tmp = 2; tmp * tmp <= P; tmp++) {
         if (!(ljc % tmp)) {
-            long long PK = 1;  // ·Ö½âÎªÖÊÊýpµÄk´ÎÃÝ
+            long long PK = 1;  // åˆ†è§£ä¸ºè´¨æ•°pçš„kæ¬¡å¹‚
             while (!(ljc % tmp)) {
                 PK *= tmp;
                 ljc /= tmp;

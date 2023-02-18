@@ -2,10 +2,10 @@
 using namespace std;
 typedef long long ll;
 
-map<ll, int> m_pollard;  // mapÖĞµÚÒ»¸ö¼üÊÇÒò×Ó£¬ÖµÊÇ´ÎÊı
+map<ll, int> m_pollard;  // mapä¸­ç¬¬ä¸€ä¸ªé”®æ˜¯å› å­ï¼Œå€¼æ˜¯æ¬¡æ•°
 const int mod = 10000019;
-const int times = 50;     //²âÊÔ50´Î
-ll mul(ll a, ll b, ll m)  //Çóa*b%m
+const int times = 50;     //æµ‹è¯•50æ¬¡
+ll mul(ll a, ll b, ll m)  //æ±‚a*b%m
 {
     ll ans = 0;
     a %= m;
@@ -28,20 +28,20 @@ ll pow(ll a, ll b, ll m)  // a^b % m
     ans %= m;
     return ans;
 }
-bool Miller_Rabin(ll n, int repeat)  // nÊÇ²âÊÔµÄ´óÊı£¬repeatÊÇ²âÊÔÖØ¸´´ÎÊı
+bool Miller_Rabin(ll n, int repeat)  // næ˜¯æµ‹è¯•çš„å¤§æ•°ï¼Œrepeatæ˜¯æµ‹è¯•é‡å¤æ¬¡æ•°
 {
-    if (n == 2 || n == 3) return true;       //ÌØÅĞ
-    if (n % 2 == 0 || n == 1) return false;  //Å¼ÊıºÍ1
+    if (n == 2 || n == 3) return true;       //ç‰¹åˆ¤
+    if (n % 2 == 0 || n == 1) return false;  //å¶æ•°å’Œ1
 
-    //½«n-1·Ö½â³É2^s*d
+    //å°†n-1åˆ†è§£æˆ2^s*d
     ll d = n - 1;
     int s = 0;
     while (!(d & 1))
         ++s, d >>= 1;
-    // srand((unsigned)time(NULL));ÔÚ×î¿ªÊ¼µ÷ÓÃ¼´¿É
-    for (int i = 0; i < repeat; i++)  //ÖØ¸´repeat´Î
+    // srand((unsigned)time(NULL));åœ¨æœ€å¼€å§‹è°ƒç”¨å³å¯
+    for (int i = 0; i < repeat; i++)  //é‡å¤repeatæ¬¡
     {
-        ll a = rand() % (n - 3) + 2;  //È¡Ò»¸öËæ»úÊı,[2,n-1)
+        ll a = rand() % (n - 3) + 2;  //å–ä¸€ä¸ªéšæœºæ•°,[2,n-1)
         ll x = pow(a, d, n);
         ll y = 0;
         for (int j = 0; j < s; j++) {
@@ -49,24 +49,24 @@ bool Miller_Rabin(ll n, int repeat)  // nÊÇ²âÊÔµÄ´óÊı£¬repeatÊÇ²âÊÔÖØ¸´´ÎÊı
             if (y == 1 && x != 1 && x != (n - 1)) return false;
             x = y;
         }
-        if (y != 1) return false;  //·ÑÂíĞ¡¶¨Àí
+        if (y != 1) return false;  //è´¹é©¬å°å®šç†
     }
     return true;
 }
 ll gcd(ll a, ll b) {
     return b == 0 ? a : gcd(b, a % b);
 }
-ll pollard_rho(ll n, ll c)  //ÕÒµ½nµÄÒ»¸öÒò×Ó
+ll pollard_rho(ll n, ll c)  //æ‰¾åˆ°nçš„ä¸€ä¸ªå› å­
 {
     ll x = rand() % (n - 2) + 1;
     ll y = x, i = 1, k = 2;
     while (1) {
         i++;
-        x = (mul(x, x, n) + c) + n;  //²»¶Ïµ÷Õûx2
+        x = (mul(x, x, n) + c) + n;  //ä¸æ–­è°ƒæ•´x2
         ll d = gcd(y - x, n);
-        if (1 < d && d < n) return d;  //ÕÒµ½Òò×Ó
-        if (y == x) return n;          //ÕÒµ½Ñ­»·£¬·µ»Øn£¬ÖØĞÂÀ´
-        if (i == k)                    //Ò»¸öÓÅ»¯
+        if (1 < d && d < n) return d;  //æ‰¾åˆ°å› å­
+        if (y == x) return n;          //æ‰¾åˆ°å¾ªç¯ï¼Œè¿”å›nï¼Œé‡æ–°æ¥
+        if (i == k)                    //ä¸€ä¸ªä¼˜åŒ–
         {
             y = x;
             k <<= 1;
@@ -74,25 +74,25 @@ ll pollard_rho(ll n, ll c)  //ÕÒµ½nµÄÒ»¸öÒò×Ó
     }
 }
 void Find(ll n, ll c) {
-    if (n == 1) return;  //µİ¹é³ö¿Ú
+    if (n == 1) return;  //é€’å½’å‡ºå£
 
-    if (Miller_Rabin(n, times))  //Èç¹ûÊÇËØÊı£¬¾Í¼ÓÈë
+    if (Miller_Rabin(n, times))  //å¦‚æœæ˜¯ç´ æ•°ï¼Œå°±åŠ å…¥
     {
         m_pollard[n]++;
         return;
     }
     ll p = n;
     while (p >= n)
-        p = pollard_rho(p, c--);  //²»¶ÏÕÒÒò×Ó£¬ÖªµÀÕÒµ½ÎªÖ¹£¬·µ»ØnËµÃ÷Ã»ÕÒµ½
+        p = pollard_rho(p, c--);  //ä¸æ–­æ‰¾å› å­ï¼ŒçŸ¥é“æ‰¾åˆ°ä¸ºæ­¢ï¼Œè¿”å›nè¯´æ˜æ²¡æ‰¾åˆ°
 
     Find(p, c);
     Find(n / p, c);
 }
 
 // O(n^(1/4))
-int use_find(ll n) {  //½«Òò×Ó´æÈçm£¨map£©ÖĞ
+int use_find(ll n) {  //å°†å› å­å­˜å¦‚mï¼ˆmapï¼‰ä¸­
     srand((unsigned)time(NULL));
     m_pollard.clear();
-    Find(n, rand() % (n - 1) + 1);  //ÕâÊÇ×Ô¼ºÉèÖÃµÄÒ»¸öÊı
+    Find(n, rand() % (n - 1) + 1);  //è¿™æ˜¯è‡ªå·±è®¾ç½®çš„ä¸€ä¸ªæ•°
     return 0;
 }

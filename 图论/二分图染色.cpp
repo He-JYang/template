@@ -17,11 +17,11 @@ bool bfs_tu(int u) {
         que.pop();
         for (int i = 1; i <= n; i++) {
             if (mp[x][i]) {
-                if (color[i] == -1)  //Èç¹ûÎ´ÄÜÈ¾É«
+                if (color[i] == -1)  //å¦‚æžœæœªèƒ½æŸ“è‰²
                 {
-                    color[i] = color[x] ^ 1;  //ÓëÉÏÒ»¸öÏàÁ¬½áµãÑÕÉ«Òª²»Í¬
+                    color[i] = color[x] ^ 1;  //ä¸Žä¸Šä¸€ä¸ªç›¸è¿žç»“ç‚¹é¢œè‰²è¦ä¸åŒ
                     que.push(i);
-                } else if (color[i] == color[x])  //Èç¹ûÓÐ³åÍ»
+                } else if (color[i] == color[x])  //å¦‚æžœæœ‰å†²çª
                 {
                     return false;
                 }
@@ -33,7 +33,7 @@ bool bfs_tu(int u) {
 bool match() {
     memset(color, -1, sizeof(color));
     for (int i = 1; i <= n; i++) {
-        if (color[i] == -1)  //Èç¹ûÃ»ÓÐÈ¾É«£¬¾ÍËµÃ÷Õâ²»ÔÚÉÏÒ»¸öÁ¬Í¨¿éÀï
+        if (color[i] == -1)  //å¦‚æžœæ²¡æœ‰æŸ“è‰²ï¼Œå°±è¯´æ˜Žè¿™ä¸åœ¨ä¸Šä¸€ä¸ªè¿žé€šå—é‡Œ
         {
             if (!bfs_tu(i)) return false;
         }

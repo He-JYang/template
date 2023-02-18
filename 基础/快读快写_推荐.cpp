@@ -1,6 +1,6 @@
 #include <bits/stdc++.h>
 
-//¿ì¶Á
+//Â¿Ã¬Â¶Ã
 inline int read() {
     int x = 0, f = 1;
     char c = getchar();
@@ -16,7 +16,7 @@ inline int read() {
     return x * f;
 }
 
-//¿ìĞ´
+//Â¿Ã¬ÃÂ´
 inline void write(int x) {
     if (x < 0) {
         putchar('-');

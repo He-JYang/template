@@ -4,11 +4,11 @@ using namespace std;
 
 int const ola_N = 1e7 + 10;
 int const ola_maxn = 1e7 + 10;
-bool is_prime[ola_N];  // ÅÐ¶ÏiÊÇ·ñÎªËØÊý,i=0,i=1µÄÊ±ºò¶¼²»ÊÇÖÊÊý £¬ËùÒÔÖ±½Ó±ê¼Ç
-int prime[ola_N];      // ´æÖÊÊý
-int tot;               // n>100000Ê±tot<n/10
+bool is_prime[ola_N];  // åˆ¤æ–­iæ˜¯å¦ä¸ºç´ æ•°,i=0,i=1çš„æ—¶å€™éƒ½ä¸æ˜¯è´¨æ•° ï¼Œæ‰€ä»¥ç›´æŽ¥æ ‡è®°
+int prime[ola_N];      // å­˜è´¨æ•°
+int tot;               // n>100000æ—¶tot<n/10
 
-//Å·À­É¸Ê±¼ä¸´ÔÓ¶ÈO(n)Ã¿¸öºÏÊýÖ»±»Æä×îÐ¡ÖÊÒò×ÓÉ¸È¥
+//æ¬§æ‹‰ç­›æ—¶é—´å¤æ‚åº¦O(n)æ¯ä¸ªåˆæ•°åªè¢«å…¶æœ€å°è´¨å› å­ç­›åŽ»
 void ola(int n) {
     for (int i = 2; i <= n; i++)
         is_prime[i] = 1;

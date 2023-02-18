@@ -6,22 +6,22 @@ bool check(int x) {
     ;
 }
 
-// ´ø²»´øµÈºÅÓÉcheckº¯Êý¾ö¶¨£¬
-// ifÖÐÌîÊ²Ã´ÓÉ±ØÒªÌõ¼þµÄÇø¼ä¾ö¶¨
-// ±ØÒªÌõ¼þ£º£¨Ò»°ãÊÇÒ»¶¨Âú×ãµÚÒ»¸öÌõ¼þ£¬¿ÉÄÜÂú×ãµÚ¶þ¸öÌõ¼þ£¬Ò»¶¨´æÔÚ´ð°¸µÄÇø¼ä£©
+// å¸¦ä¸å¸¦ç­‰å·ç”±checkå‡½æ•°å†³å®šï¼Œ
+// ifä¸­å¡«ä»€ä¹ˆç”±å¿…è¦æ¡ä»¶çš„åŒºé—´å†³å®š
+// å¿…è¦æ¡ä»¶ï¼šï¼ˆä¸€èˆ¬æ˜¯ä¸€å®šæ»¡è¶³ç¬¬ä¸€ä¸ªæ¡ä»¶ï¼Œå¯èƒ½æ»¡è¶³ç¬¬äºŒä¸ªæ¡ä»¶ï¼Œä¸€å®šå­˜åœ¨ç­”æ¡ˆçš„åŒºé—´ï¼‰
 int binsearch(int l = 1, int r = n, int a[]) {
     int mid = (l + r) / 2;
-    // int mid = (l + r + 1) / 2;  //±ØÒªÌõ¼þÔÚ×ó
+    // int mid = (l + r + 1) / 2;  //å¿…è¦æ¡ä»¶åœ¨å·¦
     while (l < r) {
         if (check(mid)) {
-            r = mid;  //±ØÒªÌõ¼þÔÚÓÒ
-            // l = mid;  //±ØÒªÌõ¼þÔÚ×ó
+            r = mid;  //å¿…è¦æ¡ä»¶åœ¨å³
+            // l = mid;  //å¿…è¦æ¡ä»¶åœ¨å·¦
         } else {
-            l = mid + 1;  //±ØÒªÌõ¼þÔÚÓÒ
-            // r = mid - 1;  //±ØÒªÌõ¼þÔÚ×ó
+            l = mid + 1;  //å¿…è¦æ¡ä»¶åœ¨å³
+            // r = mid - 1;  //å¿…è¦æ¡ä»¶åœ¨å·¦
         }
         mid = (l + r) / 2;
-        // mid = (l + r + 1) / 2;//±ØÒªÌõ¼þÔÚ×ó
+        // mid = (l + r + 1) / 2;//å¿…è¦æ¡ä»¶åœ¨å·¦
     }
     return l;
 }

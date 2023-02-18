@@ -9,15 +9,15 @@ int head[N], vis[N];
 
 // O(N+M)
 
-int dfn[N], low[N];      // dfnÊÇÑÏ¸ñµ¥µ÷µİÔöµÄÖ»ÓĞlow¿ÉÄÜ±ä»¯
-int Stack[N], tim, idx;  // timÊ±¼ä´Á
-int scc[N];              // s±íÊ¾ÊôÓÚÄÄÒ»¸öÇ¿Á¬Í¨·ÖÁ¿(strongly connected components)
+int dfn[N], low[N];      // dfnæ˜¯ä¸¥æ ¼å•è°ƒé€’å¢çš„åªæœ‰lowå¯èƒ½å˜åŒ–
+int Stack[N], tim, idx;  // timæ—¶é—´æˆ³
+int scc[N];              // sè¡¨ç¤ºå±äºå“ªä¸€ä¸ªå¼ºè¿é€šåˆ†é‡(strongly connected components)
 
-// tarjan Ëã·¨ÔÚÓĞÏòÍ¼ÖĞÓÃÓÚÇóÇ¿Á¬Í¨·ÖÁ¿ÔÚÎŞÏòÍ¼ÖĞÓÃÓÚÇó¸îµãºÍ¸î±ß£¨ÇÅ£©
+// tarjan ç®—æ³•åœ¨æœ‰å‘å›¾ä¸­ç”¨äºæ±‚å¼ºè¿é€šåˆ†é‡åœ¨æ— å‘å›¾ä¸­ç”¨äºæ±‚å‰²ç‚¹å’Œå‰²è¾¹ï¼ˆæ¡¥ï¼‰
 void tarjan(int u, int fa) {
     dfn[u] = low[u] = ++tim;
     Stack[++idx] = u;
-    vis[u] = 1;  // ±íÊ¾ÔÚÕ»Àï£¬×îÖÕÕ»Ò»¶¨ÊÇ¿ÕµÄ
+    vis[u] = 1;  // è¡¨ç¤ºåœ¨æ ˆé‡Œï¼Œæœ€ç»ˆæ ˆä¸€å®šæ˜¯ç©ºçš„
     for (int i = head[u]; i; i = node[i].next) {
         int to = node[i].to;
         if (!dfn[to]) {
@@ -25,15 +25,15 @@ void tarjan(int u, int fa) {
             low[u] = min(low[u], low[to]);
         } else if (vis[to]) {
             low[u] = min(low[u], dfn[to]);
-            // ÔÚÇóÇ¿Á¬Í¨·ÖÁ¿Ê±Ğ´ dfnºÍlow¶¼ÊÇ¶ÔµÄµ«ÔÚÇó¸îµãÓëÇÅÊ±Ö»ÄÜĞ´dfnÒ²¾ÍÊÇÏÖÔÚÕâÖÖĞ´·¨
-            // ÒòÎªÔÚÇóÇ¿Á¬Í¨·ÖÁ¿Ê±Ö»Òªlow!=dfnÕâ¸öµã¾Í»á±»Ëõµã
+            // åœ¨æ±‚å¼ºè¿é€šåˆ†é‡æ—¶å†™ dfnå’Œlowéƒ½æ˜¯å¯¹çš„ä½†åœ¨æ±‚å‰²ç‚¹ä¸æ¡¥æ—¶åªèƒ½å†™dfnä¹Ÿå°±æ˜¯ç°åœ¨è¿™ç§å†™æ³•
+            // å› ä¸ºåœ¨æ±‚å¼ºè¿é€šåˆ†é‡æ—¶åªè¦low!=dfnè¿™ä¸ªç‚¹å°±ä¼šè¢«ç¼©ç‚¹
         }
     }
 
     if (low[u] == dfn[u]) {
         while (1) {
             int y = Stack[idx--];
-            scc[y] = u;  // Ëõµã
+            scc[y] = u;  // ç¼©ç‚¹
             vis[y] = false;
             if (u == y) break;
         }

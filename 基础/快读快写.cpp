@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 
 FILE *fin = stdin, *fout = stdout;
-inline int read(int& x) {  //快读和快写，否则10^7忍受不了
+inline int read(int& x) {  //蹇鍜屽揩鍐欙紝鍚﹀垯10^7蹇嶅彈涓嶄簡
     char c = 0;
     int f = x = 0;
     while (c < 48 || c > 57) {

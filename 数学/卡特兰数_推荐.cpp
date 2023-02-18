@@ -2,8 +2,8 @@
 using namespace std;
 long long ans1, ans2;
 
-// ×î¶à30Î»¿¨ÌØÀ¼Êıº¬30
-int C(int a, int b) {  //¼òÒ×°æC
+// æœ€å¤š30ä½å¡ç‰¹å…°æ•°å«30
+int C(int a, int b) {  //ç®€æ˜“ç‰ˆC
     int mul = 1;
     int dev = 1;
     for (int i = a - b + 1, j = 1; i <= a; i++, j++) {

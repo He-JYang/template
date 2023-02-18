@@ -1,5 +1,5 @@
 const int N = 100000;
-// ¶ş·ÖÍ¼±¾ÖÊÊÇÎŞÏòÍ¼
+// äºŒåˆ†å›¾æœ¬è´¨æ˜¯æ— å‘å›¾
 
 struct Node {
     int to, next;
@@ -9,7 +9,7 @@ struct Node {
 int head[N];
 int color[N];
 
-// È¾É«1±íÊ¾°×É«-1±íÊ¾ºÚÉ«0±íÊ¾Ã»È¾
+// æŸ“è‰²1è¡¨ç¤ºç™½è‰²-1è¡¨ç¤ºé»‘è‰²0è¡¨ç¤ºæ²¡æŸ“
 bool dfs(int v, int c) {
     color[v] = c;
     for (int i = head[v]; i; i = node[i].next) {

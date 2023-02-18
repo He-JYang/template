@@ -49,7 +49,7 @@ struct bign {
         return c;
     }
 
-    // 两个都可以用
+    // 涓や釜閮藉彲浠ョ敤
     // bign operator+(const bign& b) const {
     //     bign c;
     //     c.len = 0;

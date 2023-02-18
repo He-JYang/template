@@ -1,7 +1,7 @@
 const int N = 100000;
 
 //
-int fa[N], d[N];  // d为到父节点的距离
+int fa[N], d[N];  // d涓哄埌鐖惰妭鐐圭殑璺濈
 
 int found(int x) {
     if (fa[x] == x)
@@ -14,14 +14,14 @@ int found(int x) {
     }
 }
 
-void merge(int x, int y, int w) {  // y比x多w的权
+void merge(int x, int y, int w) {  // y姣攛澶歸鐨勬潈
     int fax = found(x), fay = found(y);
     if (fax == fay) return;
     fa[fax] = fay;
     d[fax] = -d[x] + d[y] + w;
 }
 
-int dist(int x, int y) {  // y比x多多少权
+int dist(int x, int y) {  // y姣攛澶氬灏戞潈
     int fax = found(x), fay = found(y);
     if (fax != fay)
         return -1;

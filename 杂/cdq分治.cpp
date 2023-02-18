@@ -4,18 +4,18 @@ int a[N], b[N];
 int cdq_merger(int l, int r) {
     if (l == r) {
         // return;
-        return a[l] >= 0;  // ÇóË³Ğò¶Ô
+        return a[l] >= 0;  // æ±‚é¡ºåºå¯¹
     }
     int mid = (l + r) >> 1;
     int ans = cdq_merger(l, mid) + cdq_merger(mid + 1, r);
     int pl = l, pr = mid + 1;
     for (int i = l; i <= r; i++) {
-        if (pl <= mid && a[pl] <= a[pr] || pr > r) {  // ×¢ÒâÊÇÈı¸öÌõ¼ş
+        if (pl <= mid && a[pl] <= a[pr] || pr > r) {  // æ³¨æ„æ˜¯ä¸‰ä¸ªæ¡ä»¶
             b[i] = a[pl++];
         } else {
             b[i] = a[pr++];
-            // ans += (mid - pl + 1);//ÇóÄæĞò¶Ô
-            ans += pl - mid;  //ÇóË³Ğò¶Ô£¬¼´Çó¶şÎ¬Æ«Ğò
+            // ans += (mid - pl + 1);//æ±‚é€†åºå¯¹
+            ans += pl - mid;  //æ±‚é¡ºåºå¯¹ï¼Œå³æ±‚äºŒç»´ååº
         }
     }
     for (int i = l; i <= r; i++)

@@ -24,7 +24,7 @@ void dfs(int u, int fa) {
     }
 }
 int lca(int u, int v) {
-    if (depth[u] < depth[v])  // È·±£ u µÄÉî¶È¸ü´ó
+    if (depth[u] < depth[v])  // ç¡®ä¿ u çš„æ·±åº¦æ›´å¤§
         swap(u, v);
     while (depth[u] > depth[v]) {
         u = st[u][__lg(depth[u] - depth[v])];

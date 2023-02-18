@@ -4,7 +4,7 @@ const int N = 1000000;
 int a[N];
 int n;
 
-// O(nlogn) a[i]直接被赋值为离散化后的值，原值为discre[a[i]]
+// O(nlogn) a[i]鐩存帴琚祴鍊间负绂绘暎鍖栧悗鐨勫�硷紝鍘熷�间负discre[a[i]]
 
 int discre[N];
 

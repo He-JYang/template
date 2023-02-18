@@ -6,7 +6,7 @@ struct Node {
 
 int head[N], color[N];
 int vistime[N];
-int mch[N];  // 与之配对的点
+int mch[N];  // 涓庝箣閰嶅鐨勭偣
 
 bool match(int u, int tag) {
     if (vistime[u] == tag) return false;

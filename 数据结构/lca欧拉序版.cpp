@@ -9,7 +9,7 @@ struct Node {
 int head[N], vis[N];
 int n, m;
 
-// O(nlogn) Ԥ���� O(1)��ѯ
+// O(nlogn) ‘§¥¶¿Ì O(1)≤È—Ø
 
 const int LOGN = __lg(N * 4);
 int root, a[N], deepth[N];

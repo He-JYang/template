@@ -14,7 +14,7 @@ void display(int u) {
 void pushup(int rt) {
     sz[rt] = sz[ch[rt][0]] + sz[ch[rt][1]] + 1;
 }
-int merge(int u, int v) {  //±£Ö¤uÊ÷µÄ×î´óÈ¨ÖµĞ¡ÓÚµÈÓÚvÊ÷µÄ×îĞ¡È¨Öµ
+int merge(int u, int v) {  //ä¿è¯uæ ‘çš„æœ€å¤§æƒå€¼å°äºç­‰äºvæ ‘çš„æœ€å°æƒå€¼
     if (!u || !v) return u + v;
     if (tar[u] < tar[v]) {
         ch[u][1] = merge(ch[u][1], v);

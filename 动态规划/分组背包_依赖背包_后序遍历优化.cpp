@@ -3,7 +3,7 @@ using namespace std;
 #define rep(a, b, c) for (int a = b; a <= c; a++)
 #define rrep(a, b, c) for (int a = b; a >= c; a--)
 const int N = 3333;
-const int ainf = 0x3f3f3f3f;  // addable inf ¿É¼ÓÎŞÇî´ó
+const int ainf = 0x3f3f3f3f;  // addable inf å¯åŠ æ— ç©·å¤§
 int n, m, tot;
 int a[N];
 struct Node {
@@ -83,4 +83,4 @@ signed use_example() {
     return 0;
 }
 
-// À´Ô´£ºÂå¹ÈP1273 ÓĞÏßµçÊÓÍø
+// æ¥æºï¼šæ´›è°·P1273 æœ‰çº¿ç”µè§†ç½‘

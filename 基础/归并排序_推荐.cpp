@@ -9,11 +9,11 @@ void merger(int l, int r) {
     merger(mid + 1, r);
     int pl = l, pr = mid + 1;
     for (int i = l; i <= r; i++) {
-        if (pl <= mid && a[pl] <= a[pr] || pr > r) {  // ×¢ÒâÊÇÈı¸öÌõ¼ş
+        if (pl <= mid && a[pl] <= a[pr] || pr > r) {  // æ³¨æ„æ˜¯ä¸‰ä¸ªæ¡ä»¶
             b[i] = a[pl++];
         } else {
             b[i] = a[pr++];
-            // ans += (mid - pl + 1);ÇóÄæĞò¶Ô
+            // ans += (mid - pl + 1);æ±‚é€†åºå¯¹
         }
     }
     for (int i = l; i <= r; i++)

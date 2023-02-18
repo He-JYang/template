@@ -18,7 +18,7 @@ inline void add(int a, int b, int c = 0) {
 
 int h[N], in[N];
 int dis[N];
-int disMatrix[N][N];  // ¾àÀë¾ØÕó ´æ´Ói³ö·¢µ½jµÄ×î¶ÌÂ·¾àÀë
+int disMatrix[N][N];  // è·ç¦»çŸ©é˜µ å­˜ä»iå‡ºå‘åˆ°jçš„æœ€çŸ­è·¯è·ç¦»
 
 queue<int> q1;
 bool spfa(int start, int n) {
@@ -31,7 +31,7 @@ bool spfa(int start, int n) {
     while (!q1.empty()) {
         int u = q1.front();
         q1.pop();
-        vis[u] = 0;  // vis±íÊ¾ÊÇ·ñÔÚ¶ÓÁĞÖĞ
+        vis[u] = 0;  // visè¡¨ç¤ºæ˜¯å¦åœ¨é˜Ÿåˆ—ä¸­
         for (int i = head[u]; i; i = node[i].next) {
             int to = node[i].to;
             int w = node[i].w;
@@ -42,7 +42,7 @@ bool spfa(int start, int n) {
                     q1.push(to);
                     vis[to] = 1;
                     in[to]++;
-                    if (in[to] > n) return false;  // ÈôÒ»¸öµãÈë¶Ó³¬¹ın´ÎÔò´æÔÚ¸ºÈ¨»·
+                    if (in[to] > n) return false;  // è‹¥ä¸€ä¸ªç‚¹å…¥é˜Ÿè¶…è¿‡næ¬¡åˆ™å­˜åœ¨è´Ÿæƒç¯
                 }
             }
         }
@@ -74,7 +74,7 @@ void dijkstra(int start, int n) {
     }
 }
 
-// johnsonÈ«Ô´×î¶ÌÂ· Èô´æÔÚ¸º»··µ»Øfalse
+// johnsonå…¨æºæœ€çŸ­è·¯ è‹¥å­˜åœ¨è´Ÿç¯è¿”å›false
 bool johnson(int n) {
     for (int i = 1; i <= n; i++) {
         add(0, i, 0);
@@ -89,7 +89,7 @@ bool johnson(int n) {
     for (int i = 1; i <= n; i++) {
         dijkstra(i, n);
         for (int j = 1; j <= n; j++) {
-            vis[j] = 0;  // spfaÅÜÍêvisÊÇÈ«¿Õ dijkstraÅÜÍêÄÜµ½µÄvisÈ«Âú
+            vis[j] = 0;  // spfaè·‘å®Œvisæ˜¯å…¨ç©º dijkstraè·‘å®Œèƒ½åˆ°çš„viså…¨æ»¡
             if (dis[j] != inf) {
                 disMatrix[i][j] = dis[j] - h[i] + h[j];
             } else {

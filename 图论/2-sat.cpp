@@ -46,23 +46,23 @@ void tarjan(int u, int fa) {
 signed use(int n, int m) {
     for (int i = 1; i <= m; i++) {
         int a, va, b, vb, op;
-        if (op == 1) {  // a=va»òb=vb
+        if (op == 1) {  // a=vaæˆ–b=vb
             add(a + n * (va ^ 1), b + n * vb);
             add(b + n * (vb ^ 1), a + n * va);
         }
-        if (op == 2) {  // a=vaÊ±b=vb b=vbÊ±a=va
+        if (op == 2) {  // a=vaæ—¶b=vb b=vbæ—¶a=va
             add(a + n * va, b + n * vb);
             add(a + n * (va ^ 1), b + n * (vb ^ 1));
         }
-        if (op == 3) {  // a=va±Ø³ÉÁ¢
+        if (op == 3) {  // a=vaå¿…æˆç«‹
             add(a + n * (va ^ 1), a + n * (va));
         }
     }
-    // node[i]=1±íÊ¾iÎªÕæ node[i+n]=1±íÊ¾iÎª¼Ù
+    // node[i]=1è¡¨ç¤ºiä¸ºçœŸ node[i+n]=1è¡¨ç¤ºiä¸ºå‡
     for (int i = 1; i <= 2 * n; i++) {
         if (!dfn[i]) tarjan(i, i);
     }
-    // Ò»¸ö±äÁ¿µÄÕæºÍ¼Ù´æÔÚÍ¬Ò»¸öÇ¿Á¬Í¨·ÖÁ¿ÖĞ¾Í²»¿ÉÄÜÊµÏÖ
+    // ä¸€ä¸ªå˜é‡çš„çœŸå’Œå‡å­˜åœ¨åŒä¸€ä¸ªå¼ºè¿é€šåˆ†é‡ä¸­å°±ä¸å¯èƒ½å®ç°
     for (int i = 1; i <= n; i++) {
         if (scc[i] == scc[i + n]) {
             cout << "IMPOSSIBLE";
@@ -70,7 +70,7 @@ signed use(int n, int m) {
         }
     }
     cout << "POSSIBLE" << endl;
-    // Ã¿¸ö±äÁ¿È¡ÍØÆËĞò´óµÄÖµ£¨0»ò1£©¼´¿É
+    // æ¯ä¸ªå˜é‡å–æ‹“æ‰‘åºå¤§çš„å€¼ï¼ˆ0æˆ–1ï¼‰å³å¯
     for (int i = 1; i <= n; i++) {
         printf("%lld ", scc[i] > scc[i + n]);
     }

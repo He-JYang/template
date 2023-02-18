@@ -3,33 +3,33 @@ using namespace std;
 
 int n, sx, sy;  // sx=sumx
 
-double ansx, ansy;           //È«¾Ö×îÓÅ½âµÄ×ø±ê
-double ans = 1e18, t;        //È«¾Ö×îÓÅ½â¡¢ÎÂ¶È
-const double delta = 0.993;  // 0.993; //½µÎÂÏµÊı
+double ansx, ansy;           //å…¨å±€æœ€ä¼˜è§£çš„åæ ‡
+double ans = 1e18, t;        //å…¨å±€æœ€ä¼˜è§£ã€æ¸©åº¦
+const double delta = 0.993;  // 0.993; //é™æ¸©ç³»æ•°
 
-inline double cal(double x, double y) {  //¼ÆËã
+inline double cal(double x, double y) {  //è®¡ç®—
     return 0.0;
 }
 
-inline void simulate_anneal() {  // SAÖ÷¹ı³Ì
+inline void simulate_anneal() {  // SAä¸»è¿‡ç¨‹
     double x = ansx, y = ansy;
-    t = 2000;  //³õÊ¼ÎÂ¶È
+    t = 2000;  //åˆå§‹æ¸©åº¦
     while (t > 1e-14) {
         double X = x + ((rand() << 1) - RAND_MAX) * t;
-        double Y = y + ((rand() << 1) - RAND_MAX) * t;  //µÃ³öÒ»¸öĞÂµÄ×ø±ê
+        double Y = y + ((rand() << 1) - RAND_MAX) * t;  //å¾—å‡ºä¸€ä¸ªæ–°çš„åæ ‡
         double now = cal(X, Y);
         double Delta = now - ans;
-        if (Delta < 0) {  //½ÓÊÜ
+        if (Delta < 0) {  //æ¥å—
             x = X, y = Y;
             ansx = x, ansy = y, ans = now;
         } else if (exp(-Delta / t) * RAND_MAX > rand())
-            x = X, y = Y;  //ÒÔÒ»¸ö¸ÅÂÊ½ÓÊÜ
+            x = X, y = Y;  //ä»¥ä¸€ä¸ªæ¦‚ç‡æ¥å—
         t *= delta;
     }
 }
 
-inline void use() {                                //¶àÅÜ¼¸±éSA£¬¼õĞ¡Îó²î
-    ansx = (double)sx / n, ansy = (double)sy / n;  //´ÓÆ½¾ùÖµ¿ªÊ¼¸üÈİÒ×½Ó½ü×îÓÅ½â
+inline void use() {                                //å¤šè·‘å‡ éSAï¼Œå‡å°è¯¯å·®
+    ansx = (double)sx / n, ansy = (double)sy / n;  //ä»å¹³å‡å€¼å¼€å§‹æ›´å®¹æ˜“æ¥è¿‘æœ€ä¼˜è§£
     simulate_anneal();
     simulate_anneal();
     simulate_anneal();
@@ -40,6 +40,6 @@ inline void use() {                                //¶àÅÜ¼¸±éSA£¬¼õĞ¡Îó²î
 void init() {
     srand(18253517);
     srand(rand());
-    srand(rand());  //ĞşÑ§srand
+    srand(rand());  //ç„å­¦srand
     // cout << RAND_MAX;//32767
 }

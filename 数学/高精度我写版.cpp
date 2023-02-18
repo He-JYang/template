@@ -17,7 +17,7 @@ void show(int a[]) {
     cout << endl;
 }
 
-void mul(int a[], int x)  //高精求积
+void mul(int a[], int x)  //楂樼簿姹傜Н
 {
     int g = 0;
     for (int i = mlen; i >= 0; i--) {
@@ -27,7 +27,7 @@ void mul(int a[], int x)  //高精求积
     }
 }
 
-void add(int a[], int s[])  //高精求和s+=a
+void add(int a[], int s[])  //楂樼簿姹傚拰s+=a
 {
     int g = 0;
     for (int i = mlen; i >= 0; i--) {

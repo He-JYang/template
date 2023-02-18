@@ -22,7 +22,7 @@ void destory(int u, int f) {
 }
 void rotate(int u) {
     int f = fa[u], ff = fa[f], du = dir(u);
-    if (!f) return;  //ÒÑ¾­ÊÇ¸ù½Úµã
+    if (!f) return;  //å·²ç»æ˜¯æ ¹èŠ‚ç‚¹
     int df = dir(f);
     connect(u, ff, df), connect(ch[u][du ^ 1], f, du), connect(f, u, du ^ 1);
     pushup(f), pushup(u);
@@ -119,7 +119,7 @@ int nxt(int x) {
     splay(id, 0);
     return ans;
 }
-// void display(int u) {  //ÓÃÓÚµ÷ÊÔ£¬¹¦ÄÜÊÇ´òÓ¡Õû¿ÃÊ÷µÄËùÓĞ½ÚµãĞÅÏ¢
+// void display(int u) {  //ç”¨äºè°ƒè¯•ï¼ŒåŠŸèƒ½æ˜¯æ‰“å°æ•´æ£µæ ‘çš„æ‰€æœ‰èŠ‚ç‚¹ä¿¡æ¯
 //     if (!u) return;
 //     printf("%d,%d,%d,%d,%d,%d\n", u, val[u], cnt[u], sz[u], ch[u][0], ch[u][1]);
 //     display(ch[u][0]);

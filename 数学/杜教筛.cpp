@@ -9,7 +9,7 @@ int primes[N + 7];
 ll mu[N + 7];
 bool vis[N + 7];
 ll phi[N + 7];
-unordered_map<ll, ll> sum_mu;  //Êı×é¿ª²»ÁËÄÇÃ´´ó£¬ËùÒÔÓÃ¹şÏ£±í
+unordered_map<ll, ll> sum_mu;  //æ•°ç»„å¼€ä¸äº†é‚£ä¹ˆå¤§ï¼Œæ‰€ä»¥ç”¨å“ˆå¸Œè¡¨
 unordered_map<ll, ll> sum_phi;
 
 inline void init(int n = N) {
@@ -39,23 +39,23 @@ inline void init(int n = N) {
     }
 }
 
-inline int g_sum(int x)  // gµÄÇ°×ººÍ£¬ÕâÀïµÄg = I(x)//³£Êıº¯Êı
+inline int g_sum(int x)  // gçš„å‰ç¼€å’Œï¼Œè¿™é‡Œçš„g = I(x)//å¸¸æ•°å‡½æ•°
 {
     return x;
 }
 
-inline int get_sum_mu(int x)  // ¼ÇÒä»¯ËÑË÷
+inline int get_sum_mu(int x)  // è®°å¿†åŒ–æœç´¢
 {
-    if (x <= N) return mu[x];  //Ô¤´¦Àí
-    // if (sum_mu.find(x) != sum_mu.end()) return sum_mu[x]; //¼ÇÒä»¯
+    if (x <= N) return mu[x];  //é¢„å¤„ç†
+    // if (sum_mu.find(x) != sum_mu.end()) return sum_mu[x]; //è®°å¿†åŒ–
     if (sum_mu[x]) return sum_mu[x];
-    int ans = 1;                            // ¶Å½ÌÉ¸ÖĞÍÆ³öµÄ1
-    for (ll l = 2, r; l <= x; l = r + 1) {  // Õû³ı·Ö¿é
+    int ans = 1;                            // æœæ•™ç­›ä¸­æ¨å‡ºçš„1
+    for (ll l = 2, r; l <= x; l = r + 1) {  // æ•´é™¤åˆ†å—
         r = x / (x / l);
-        //¦²_i=2 {g(i)*S(?n/i?)}  g²»Ò»Ñù, SÒ»Ñù£¬È»ºóÕû³ı·Ö¿é
+        //Î£_i=2 {g(i)*S(?n/i?)}  gä¸ä¸€æ ·, Sä¸€æ ·ï¼Œç„¶åæ•´é™¤åˆ†å—
         ans -= (g_sum(r) - g_sum(l - 1)) * get_sum_mu(x / l);
     }
-    return sum_mu[x] = ans / g_sum(1);  // ×îºó³ıÒÔg(1)
+    return sum_mu[x] = ans / g_sum(1);  // æœ€åé™¤ä»¥g(1)
 }
 
 inline ll get_sum_phi(int x) {
@@ -63,7 +63,7 @@ inline ll get_sum_phi(int x) {
     // if(sum_phi.find(x) != sum_phi.end()) return sum_phi[x];
     if (sum_phi[x]) return sum_phi[x];
 
-    ll ans = x * ((ll)x + 1) / 2;  //¶Å½ÌÉ¸ÖĞµÄ n(n + 1) / 2
+    ll ans = x * ((ll)x + 1) / 2;  //æœæ•™ç­›ä¸­çš„ n(n + 1) / 2
     for (ll l = 2, r; l <= x; l = r + 1) {
         r = x / (x / l);
         ans -= 1ll * (g_sum(r) - g_sum(l - 1)) * get_sum_phi(x / l);
@@ -71,4 +71,4 @@ inline ll get_sum_phi(int x) {
     return sum_phi[x] = ans / g_sum(1);
 }
 
-//Ê¹ÓÃÇ°init();¼´¿É
+//ä½¿ç”¨å‰init();å³å¯

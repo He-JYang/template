@@ -94,12 +94,12 @@ signed main() {
         if (tot == lim) break;
     }
     t = log(tot) / log(2) + 1;
-    for (int i = tot; i > n; --i)  //т╓╢╕юМlca,в╒рБт╜м╪©идэ╡╩а╙м╗ё╛кЫртнрцг©идэ╧╧ЁЖакр╩╦Жи╜аж
+    for (int i = tot; i > n; --i)  //И╒└Е╓└Г░├lca,ФЁ╗Ф└▐Е▌÷Е⌡╬Е▐╞Х┐╫Д╦█Х│■И─ О╪▄Ф┴─Д╩╔Ф┬▒Д╩╛Е▐╞Х┐╫Ф·└Е┤╨Д╨├Д╦─Д╦╙Фё╝Ф·≈
         if (!dpth[i]) dpth[i] = 1, f[i][0] = i, dfs(i, 0);
     cf {
         a = read();
         b = read();
-        // lca ╣д╟Евс
+        // lca Г └Ф²©Е╜░
         if (find(a) != find(b)) {
             cout << -1 << "\n";
             continue;

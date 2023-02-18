@@ -5,7 +5,7 @@ int a[1000000];
 int n;
 
 //
-const int N = 1e7 + 10;  // N½¨ÒéÎª4*n
+const int N = 1e7 + 10;  // NÂ½Â¨Ã’Ã©ÃÂª4*n
 
 struct Segm {
     int value1, tag1;

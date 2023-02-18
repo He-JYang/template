@@ -39,7 +39,7 @@ void rotate(int u) {
     pushup(f), pushup(u);
     if (!ff) root = u;
 }
-void insert(int& u, int f, int x) {  // 注意第一个参数是引用
+void insert(int& u, int f, int x) {  // 娉ㄦ剰绗竴涓弬鏁版槸寮曠敤
     if (!u) {
         u = newnode(f, x);
         return;

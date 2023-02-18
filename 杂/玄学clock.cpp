@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-void clock_break(int ans) {  // ÔÚÄã¾õµÃ¿ÉÄÜ³¬Ê±µÄÑ­»·ÖÐ¼ÓÈëËü
+void clock_break(int ans) {  // åœ¨ä½ è§‰å¾—å¯èƒ½è¶…æ—¶çš„å¾ªçŽ¯ä¸­åŠ å…¥å®ƒ
     if ((double)clock() / CLOCKS_PER_SEC > 0.987) {
         cout << ans;
         exit(0);

@@ -23,10 +23,10 @@ inline int read();
 
 // O(n^2)
 
-int dis[N];  // µ½Ö±¾¶Ò»¶ËµÄ¾àÀë
+int dis[N];  // åˆ°ç›´å¾„ä¸€ç«¯çš„è·ç¦»
 int len, far, farl, farr;
-int fa[N];   // ÓÃfaÊı×é±éÀúÖ±¾¶
-int des[N];  // ´æÊÇ·ñÎªÖ±¾¶µã
+int fa[N];   // ç”¨faæ•°ç»„éå†ç›´å¾„
+int des[N];  // å­˜æ˜¯å¦ä¸ºç›´å¾„ç‚¹
 
 void dfs(int u, int father) {
     if (dis[u] > len) {
@@ -96,4 +96,4 @@ signed use_example() {
     return 0;
 }
 
-// Ô´×ÔÂå¹ÈP1099Ê÷ÍøµÄºË
+// æºè‡ªæ´›è°·P1099æ ‘ç½‘çš„æ ¸

@@ -5,58 +5,58 @@ const int N = 5007, M = 50007, INF = 0x3f3f3f3f;
 const double DINF = 1e18, eps = 1e-8;
 struct Point {
     double x, y;
-    Point(double x = 0, double y = 0) : x(x), y(y) {}  //¹¹Ôìº¯Êı
+    Point(double x = 0, double y = 0) : x(x), y(y) {}  //æ„é€ å‡½æ•°
 };
 
-//!×¢ÒâÇø·ÖµãºÍÏòÁ¿
+//!æ³¨æ„åŒºåˆ†ç‚¹å’Œå‘é‡
 typedef Point Vector;
-//ÏòÁ¿Æ½ÒÆÖ®ºó»¹ÊÇÄÇ¸öÏòÁ¿£¬ËùÒÔÖ»ĞèÒªÔ­µãºÍÏòÁ¿µÄÖÕµã¼´¿É
-//!ÏòÁ¿ + ÏòÁ¿ = ÏòÁ¿£¬µã + ÏòÁ¿ = ÏòÁ¿
+//å‘é‡å¹³ç§»ä¹‹åè¿˜æ˜¯é‚£ä¸ªå‘é‡ï¼Œæ‰€ä»¥åªéœ€è¦åŸç‚¹å’Œå‘é‡çš„ç»ˆç‚¹å³å¯
+//!å‘é‡ + å‘é‡ = å‘é‡ï¼Œç‚¹ + å‘é‡ = å‘é‡
 Vector operator+(Vector A, Vector B) {
     return Vector(A.x + B.x, A.y + B.y);
 }
-//!µã - µã = ÏòÁ¿(ÏòÁ¿BC = C - B)
+//!ç‚¹ - ç‚¹ = å‘é‡(å‘é‡BC = C - B)
 Vector operator-(Point A, Point B) {
     return Vector(A.x - B.x, A.y - B.y);
 }
-//!ÏòÁ¿ * Êı = ÏòÁ¿
+//!å‘é‡ * æ•° = å‘é‡
 Vector operator*(Vector A, double p) {
     return Vector(A.x * p, A.y * p);
 }
-//!ÏòÁ¿ / Êı= ÏòÁ¿
+//!å‘é‡ / æ•°= å‘é‡
 Vector operator/(Vector A, double p) {
     return Vector(A.x / p, A.y / p);
 }
 
-//!µã/ÏòÁ¿µÄ±È½Ïº¯Êı
+//!ç‚¹/å‘é‡çš„æ¯”è¾ƒå‡½æ•°
 bool operator<(const Point& a, const Point& b) {
     return a.x < b.x || (a.x == b.x && a.y < b.y);
 }
-//!Çó¼«½Ç//ÔÚ¼«×ø±êÏµÖĞ£¬Æ½ÃæÉÏÈÎºÎÒ»µãµ½¼«µãµÄÁ¬ÏßºÍ¼«ÖáµÄ¼Ğ½Ç½Ğ×ö¼«½Ç¡£
-//µ¥Î»»¡¶Èrad
+//!æ±‚æè§’//åœ¨æåæ ‡ç³»ä¸­ï¼Œå¹³é¢ä¸Šä»»ä½•ä¸€ç‚¹åˆ°æç‚¹çš„è¿çº¿å’Œæè½´çš„å¤¹è§’å«åšæè§’ã€‚
+//å•ä½å¼§åº¦rad
 double Polar_angle(Vector A) {
     return atan2(A.y, A.x);
 }
 
-//!ÈıÌ¬º¯ÊısgnÓÃÓÚÅĞ¶ÏÏàµÈ£¬¼õÉÙ¾«¶ÈÎó²îÎÊÌâ
+//!ä¸‰æ€å‡½æ•°sgnç”¨äºåˆ¤æ–­ç›¸ç­‰ï¼Œå‡å°‘ç²¾åº¦è¯¯å·®é—®é¢˜
 int sgn(double x) {
     if (fabs(x) < eps) return 0;
     if (x < 0) return -1;
     return 1;
 }
 
-//ÖØÔØµÈÓÚÔËËã·û
+//é‡è½½ç­‰äºè¿ç®—ç¬¦
 bool operator==(const Point& a, const Point& b) {
     return !sgn(a.x - b.x) && !sgn(a.y - b.y);
 }
 
-//!µã»ı(Âú×ã½»»»ÂÉ)
+//!ç‚¹ç§¯(æ»¡è¶³äº¤æ¢å¾‹)
 double Dot(Vector A, Vector B) {
     return A.x * B.x + A.y * B.y;
 }
 
-//!ÏòÁ¿µÄ²æ»ı(²»Âú×ã½»»»ÂÉ)
-//µÈÓÚÁ½ÏòÁ¿ÓĞÏòÃæ»ıµÄ¶ş±¶(´ÓvµÄ·½Ïò¿´,wÔÚ×ó±ß,²æ»ı>0,wÔÚÓÒ±ß,²æ»ı<0,¹²Ïß,²æ»ı=0)
+//!å‘é‡çš„å‰ç§¯(ä¸æ»¡è¶³äº¤æ¢å¾‹)
+//ç­‰äºä¸¤å‘é‡æœ‰å‘é¢ç§¯çš„äºŒå€(ä»vçš„æ–¹å‘çœ‹,wåœ¨å·¦è¾¹,å‰ç§¯>0,wåœ¨å³è¾¹,å‰ç§¯<0,å…±çº¿,å‰ç§¯=0)
 // cross(x, y) = -cross(y, x)
 // cross(x, y) : xAyB - xByA
 double Cross(Vector A, Vector B) {

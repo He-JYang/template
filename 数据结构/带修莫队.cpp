@@ -12,7 +12,7 @@ void write(int num) {
 }
 const int N = 100000;
 
-// O((1/4)*n^(5/3)³£ÊıÈçÏÂ¿É±»»¯Îª1/4)
+// O((1/4)*n^(5/3)å¸¸æ•°å¦‚ä¸‹å¯è¢«åŒ–ä¸º1/4)
 
 int buc[N];
 
@@ -24,11 +24,11 @@ struct Update {
     int id, pos, pre, aft;
 } update[N];
 
-// Êµ²â±ÈÒ»°ãÅÅĞò¿ì½üÒ»±¶
+// å®æµ‹æ¯”ä¸€èˆ¬æ’åºå¿«è¿‘ä¸€å€
 bool cmp(Block a, Block b) {
     if (a.pos1 == b.pos1) {
         if (a.pos2 == b.pos2) {
-            if ((a.pos2 & 1) ^ (a.pos1 & 1) ^ 1) { return a.tim > b.tim; }  // ÒòÎªÊ±¼äĞò×î¿ªÊ¼ÔÚ×îºó
+            if ((a.pos2 & 1) ^ (a.pos1 & 1) ^ 1) { return a.tim > b.tim; }  // å› ä¸ºæ—¶é—´åºæœ€å¼€å§‹åœ¨æœ€å
             return a.tim < b.tim;
         }
         if (a.pos1 & 1) return a.pos2 < b.pos2;
@@ -62,7 +62,7 @@ void updatef(int p, int op) {
 
 signed use_example() {
     int cnt1 = 0, cnt2 = 0;
-    int blen = pow(n, 2.0 / 3.0);  // Êµ²â2/3Ô¶¿ìÓÚ1/2(ÖÁÉÙ4±¶)  1/2»¹TÁË
+    int blen = pow(n, 2.0 / 3.0);  // å®æµ‹2/3è¿œå¿«äº1/2(è‡³å°‘4å€)  1/2è¿˜Täº†
     rep(i, 1, m) {
         ch = 0;
         while (!isupper(ch)) {

@@ -1,12 +1,12 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-//È«¾Ö±äÁ¿n£¬m·Ö±ð´æ´¢Á½¸ö¶àÏîÊ½µÄ×î¸ß´ÎÃÝ
-const int N = 1e5 + 10;  // NÎª¶àÏîÊ½µÄ×î¸ß´ÎÃÝ+1
+//å…¨å±€å˜é‡nï¼Œmåˆ†åˆ«å­˜å‚¨ä¸¤ä¸ªå¤šé¡¹å¼çš„æœ€é«˜æ¬¡å¹‚
+const int N = 1e5 + 10;  // Nä¸ºå¤šé¡¹å¼çš„æœ€é«˜æ¬¡å¹‚+1
 const double PI = acos(-1);
-int limit = 1;  //¸Õ±Èn+m´óµÄ2µÄÕûÊýÃÝ
-int L;          //¶þ½øÖÆµÄÎ»Êý
-int R[N];       //¶þ½øÖÆ·­×ªÊýÊý×é
+int limit = 1;  //åˆšæ¯”n+må¤§çš„2çš„æ•´æ•°å¹‚
+int L;          //äºŒè¿›åˆ¶çš„ä½æ•°
+int R[N];       //äºŒè¿›åˆ¶ç¿»è½¬æ•°æ•°ç»„
 
 struct Complex {
     double x, y;
@@ -15,7 +15,7 @@ struct Complex {
 Complex A[N];
 
 Complex operator*(Complex J, Complex Q) {
-    //Ä£³¤Ïà³Ë£¬·ù¶ÈÏà¼Ó
+    //æ¨¡é•¿ç›¸ä¹˜ï¼Œå¹…åº¦ç›¸åŠ 
     return Complex(J.x * Q.x - J.y * Q.y, J.x * Q.y + J.y * Q.x);
 }
 Complex operator-(Complex J, Complex Q) {
@@ -32,7 +32,7 @@ void FFT_init(int n, int m) {
         R[i] = (R[i >> 1] >> 1) | ((i & 1) << (L - 1));
 }
 
-void FFT(Complex* A, int type)  // FFT°å×Ó type=1±íÊ¾¸µÀïÒ¶±ä»»£¬-1±íÊ¾Äæ±ä»»
+void FFT(Complex* A, int type)  // FFTæ¿å­ type=1è¡¨ç¤ºå‚…é‡Œå¶å˜æ¢ï¼Œ-1è¡¨ç¤ºé€†å˜æ¢
 {
     for (int i = 0; i < limit; ++i)
         if (i < R[i]) swap(A[i], A[R[i]]);
@@ -56,8 +56,8 @@ void FFT(Complex* A, int type)  // FFT°å×Ó type=1±íÊ¾¸µÀïÒ¶±ä»»£¬-1±íÊ¾Äæ±ä»»
         A[i].x /= limit, A[i].y /= limit;
 }
 
-// FFTÊ¹ÓÃº¯Êý½«¶àÏîÊ½ÏµÊýÊý×éaÓëbµÄ¾í»ý·Åµ½cÖÐ£¬ÏÈinit¼´¿É
-// a[]µÄ³¤¶ÈÎªn£¬b[]µÄ³¤¶ÈÎªm
+// FFTä½¿ç”¨å‡½æ•°å°†å¤šé¡¹å¼ç³»æ•°æ•°ç»„aä¸Žbçš„å·ç§¯æ”¾åˆ°cä¸­ï¼Œå…ˆinitå³å¯
+// a[]çš„é•¿åº¦ä¸ºnï¼Œb[]çš„é•¿åº¦ä¸ºm
 void use_FFT(int a[], int b[], int c[], int n, int m) {
     Complex A[N];
     for (int i = 0; i < N; i++) {
@@ -66,7 +66,7 @@ void use_FFT(int a[], int b[], int c[], int n, int m) {
     }
     FFT(A, 1);
     for (int i = 0; i <= limit; ++i)
-        A[i] = A[i] * A[i];  //Çó³öa(x)^2
+        A[i] = A[i] * A[i];  //æ±‚å‡ºa(x)^2
     FFT(A, -1);
     for (int i = 0; i <= n + m; ++i) {
         c[i] = (int)(A[i].y / 2 + 0.5);

@@ -6,7 +6,7 @@ Point p[N], con[N];
 
 struct Point {
     int x, y;
-    Point(double x = 0, double y = 0) : x(x), y(y) {}  //¹¹Ôìº¯Êı
+    Point(double x = 0, double y = 0) : x(x), y(y) {}  //æ„é€ å‡½æ•°
 };
 typedef Point Vector;
 
@@ -22,39 +22,39 @@ double Cross(Vector A, Vector B) {
     return A.x * B.y - B.x * A.y;
 }
 
-//ÉÏÎªËùĞè¼¸ºÎÊı¾İ½á¹¹
+//ä¸Šä¸ºæ‰€éœ€å‡ ä½•æ•°æ®ç»“æ„
 
-//Í¹°ü
-int ConvexHull(Point* p /*ËùÓĞµãµÄ¼¯ºÏ*/, int n /*È«²¿µãµÄ¸öÊı*/, Point* ch /*Í¹°ü´æ·Å*/) {
+//å‡¸åŒ…
+int ConvexHull(Point* p /*æ‰€æœ‰ç‚¹çš„é›†åˆ*/, int n /*å…¨éƒ¨ç‚¹çš„ä¸ªæ•°*/, Point* ch /*å‡¸åŒ…å­˜æ”¾*/) {
     sort(p, p + n);
     int m = 0;
-    for (int i = 0; i < n; ++i) {  //ÏÂÍ¹°ü
+    for (int i = 0; i < n; ++i) {  //ä¸‹å‡¸åŒ…
         while (m > 1 && Cross(ch[m - 1] - ch[m - 2], p[i] - ch[m - 2]) <= 0)
             m--;
         ch[m++] = p[i];
     }
     int k = m;
-    for (int i = n - 2; i >= 0; --i) {  //ÉÏÍ¹°ü
+    for (int i = n - 2; i >= 0; --i) {  //ä¸Šå‡¸åŒ…
         while (m > k && Cross(ch[m - 1] - ch[m - 2], p[i] - ch[m - 2]) <= 0)
             m--;
         ch[m++] = p[i];
     }
     if (n > 1) m--;
-    // ch[0]ÊÇÆğµã£¬×îºóÒ»¸öµãch[m]Ò²ÊÇÆğµã
+    // ch[0]æ˜¯èµ·ç‚¹ï¼Œæœ€åä¸€ä¸ªç‚¹ch[m]ä¹Ÿæ˜¯èµ·ç‚¹
     return m;
 }
 
-//µãµ½Ô­µãµÄ¾àÀë
+//ç‚¹åˆ°åŸç‚¹çš„è·ç¦»
 int get_dist(const Point& x) {
     return x.x * x.x + x.y * x.y;
 }
 
-//Ğı×ª¿¨¿Ç ·µ»ØÖ±¾¶
-double Rotating_calipers(int con_num /*µãµÄ¸öÊı*/, Point con[] /*Í¹°üµã¼¯*/) {
+//æ—‹è½¬å¡å£³ è¿”å›ç›´å¾„
+double Rotating_calipers(int con_num /*ç‚¹çš„ä¸ªæ•°*/, Point con[] /*å‡¸åŒ…ç‚¹é›†*/) {
     int op = 1, ans = 0;
     for (int i = 0; i < con_num; ++i) {
         while (Cross((con[i] - con[op]), (con[i + 1] - con[i])) < Cross((con[i] - con[op + 1]), (con[i + 1] - con[i])))
-            //£¨Ğ´³É<=»á±»Á½¸öµãµÄÊı¾İ¿¨µô£¬ËùÒÔ±ØĞëĞ´³É<£©
+            //ï¼ˆå†™æˆ<=ä¼šè¢«ä¸¤ä¸ªç‚¹çš„æ•°æ®å¡æ‰ï¼Œæ‰€ä»¥å¿…é¡»å†™æˆ<ï¼‰
             op = (op + 1) % con_num;
         ans = max(ans, max(get_dist(con[i] - con[op]), get_dist(con[i + 1] - con[op])));
     }
@@ -62,8 +62,8 @@ double Rotating_calipers(int con_num /*µãµÄ¸öÊı*/, Point con[] /*Í¹°üµã¼¯*/) {
     return ans;
 }
 
-//·µ»ØÖ±¾¶
-double use_rotating(int n /*È«²¿µãµÄ¸öÊı*/, Point p[] /*ËùÓĞµãµÄ¼¯ºÏ*/) {
+//è¿”å›ç›´å¾„
+double use_rotating(int n /*å…¨éƒ¨ç‚¹çš„ä¸ªæ•°*/, Point p[] /*æ‰€æœ‰ç‚¹çš„é›†åˆ*/) {
     int con_num = ConvexHull(p, n, con);
     double res = Rotating_calipers(con_num, con);
     return res;

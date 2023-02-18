@@ -15,10 +15,10 @@ void euler_phi(int n) {
             if (i * prime[j] > n) break;
             is_prime[i * prime[j]] = 0;
             if (i % prime[j] == 0) {
-                phi[i * prime[j]] = phi[i] * prime[j];  //Èôp|mÔòmpÓëpÖÊÒò×ÓÖÖÀàÏàÍ¬
+                phi[i * prime[j]] = phi[i] * prime[j];  //è‹¥p|måˆ™mpä¸pè´¨å› å­ç§ç±»ç›¸åŒ
                 break;
             } else {
-                phi[i * prime[j]] = phi[i] * phi[prime[j]];  // »ıĞÔº¯Êı
+                phi[i * prime[j]] = phi[i] * phi[prime[j]];  // ç§¯æ€§å‡½æ•°
             }
         }
     }

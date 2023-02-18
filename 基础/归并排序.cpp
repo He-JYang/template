@@ -1,4 +1,4 @@
-// �鲢����C-�����棩
+// ¹é²¢ÅÅĞò£¨C-µü´ú°æ£©
 #include <bits/stdc++.h>
 
 int min(int x, int y) {
@@ -45,7 +45,7 @@ void test() {
 //
 //
 
-// �鲢����C-�ݹ�棩
+// ¹é²¢ÅÅĞò£¨C-µİ¹é°æ£©
 void merge_sort_recursive(int arr[], int reg[], int start, int end) {
     if (start >= end) return;
     int len = end - start, mid = (len >> 1) + start;

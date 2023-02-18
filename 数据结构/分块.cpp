@@ -4,7 +4,7 @@ int n;
 const int N = 100000;
 int a[N];
 
-// O(m¸ùn)
+// O(mÂ¸Ã¹n)
 int bl[N], br[N], bt[N];  // bl(block left)  br(block right) bt(belong to block)
 int bval1[N];             // bval1(block value 1)
 int btag1[N];

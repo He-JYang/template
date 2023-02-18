@@ -1,13 +1,13 @@
 int const mu_N = 1e7 + 10;
-bool isprime[mu_N] = {1, 1};  // ÅĞ¶ÏiÊÇ·ñÎªËØÊı,i=0,i=1µÄÊ±ºò¶¼²»ÊÇÖÊÊı £¬ËùÒÔÖ±½Ó±ê¼Ç
-int prime[mu_N];              //´æÖÊÊı
+bool isprime[mu_N] = {1, 1};  // åˆ¤æ–­iæ˜¯å¦ä¸ºç´ æ•°,i=0,i=1çš„æ—¶å€™éƒ½ä¸æ˜¯è´¨æ•° ï¼Œæ‰€ä»¥ç›´æ¥æ ‡è®°
+int prime[mu_N];              //å­˜è´¨æ•°
 int mu[mu_N];
 int mu_f[mu_N];
 
 void get_mu(long long n) {
-    mu[1] = 1;  // ´æ·Å Äª±ÈÎÚË¹º¯Êı£»
-    // isprime[] ´æ·Å ÊÇ·ñÊÇÖÊÊı
-    // prime[]  ´æ·Å  ÖÊÊı
+    mu[1] = 1;  // å­˜æ”¾ è«æ¯”ä¹Œæ–¯å‡½æ•°ï¼›
+    // isprime[] å­˜æ”¾ æ˜¯å¦æ˜¯è´¨æ•°
+    // prime[]  å­˜æ”¾  è´¨æ•°
     int cnt = 0;
     for (int i = 2; i <= n; i++) {
         if (!isprime[i]) {
@@ -19,7 +19,7 @@ void get_mu(long long n) {
             if (i % prime[j] == 0) {
                 mu[i * prime[j]] = 0;
                 break;
-            }  //Ò²¿ÉÒÔÖ±½Óbreak ÒòÎªÀïÃæ±¾À´´æµÄ¾ÍÊÇ0
+            }  //ä¹Ÿå¯ä»¥ç›´æ¥break å› ä¸ºé‡Œé¢æœ¬æ¥å­˜çš„å°±æ˜¯0
             else
                 mu[i * prime[j]] = -mu[i];
         }

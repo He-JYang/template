@@ -8,8 +8,8 @@ struct Node {
 int ans, n, m;
 int head[N];
 
-// O(n) ÇóÊ÷Ö±¾¶
-// O(nlogn)Çó¸²¸Çs1ËùÓĞµãµÄ×îĞ¡Ê÷µÄÖ±¾¶
+// O(n) æ±‚æ ‘ç›´å¾„
+// O(nlogn)æ±‚è¦†ç›–s1æ‰€æœ‰ç‚¹çš„æœ€å°æ ‘çš„ç›´å¾„
 set<int> s1;
 
 int far;

@@ -1,16 +1,16 @@
-// ÏòÁ¿½¨Í¼°æ
+// å‘é‡å»ºå›¾ç‰ˆ
 #include <bits/stdc++.h>
 using namespace std;
 
 //
 const int N = 1e6 + 10;
-int n;             //½ÚµãÊı
-vector<int> v[N];  //´æ´¢Í¼
-int ind[N];        //Èë¶È  in degree Ö±ÒëÈë¶È
-int out[N];        //³ö¶È
+int n;             //èŠ‚ç‚¹æ•°
+vector<int> v[N];  //å­˜å‚¨å›¾
+int ind[N];        //å…¥åº¦  in degree ç›´è¯‘å…¥åº¦
+int out[N];        //å‡ºåº¦
 int topolist[N];
 queue<int> q;
-void toposort() {  // ¼´bfs
+void toposort() {  // å³bfs
     int pos = 1;
     for (int i = 1; i <= n; i++) {
         if (!ind[i]) {

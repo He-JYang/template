@@ -1,6 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
-// vectorÄÜÔÚ1sÄÚÄ£Äâ10^5µÄËæ»ú²åÈë
+// vectorèƒ½åœ¨1så†…æ¨¡æ‹Ÿ10^5çš„éšæœºæ’å…¥
 vector<int> v1;
 void use(int a[], int b[], int n) {
     for (int i = 1; i <= n; i++) {

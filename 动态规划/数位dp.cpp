@@ -13,7 +13,7 @@ int dfs(int pos, int pre, int sta, bool limit) {
     int tmp = 0;
     for (int i = 0; i <= up; i++) {
         if (pre == 6 && i == 2) continue;
-        if (i == 4) continue;  //¶¼ÊÇ±£Ö¤Ã¶¾ÙºÏ·¨ĞÔ
+        if (i == 4) continue;  //éƒ½æ˜¯ä¿è¯æšä¸¾åˆæ³•æ€§
         tmp += dfs(pos - 1, i, i == 6, limit && i == a[pos]);
     }
     if (!limit) dp[pos][sta] = tmp;
@@ -29,7 +29,7 @@ int solve(int x) {
 }
 signed use() {
     int le, ri;
-    // memset(dp,-1,sizeof dp);¿ÉÓÅ»¯
+    // memset(dp,-1,sizeof dp);å¯ä¼˜åŒ–
     while (~scanf("%d%d", &le, &ri) && le + ri) {
         memset(dp, -1, sizeof dp);
         printf("%d\n", solve(ri) - solve(le - 1));

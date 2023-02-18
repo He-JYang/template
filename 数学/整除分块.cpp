@@ -1,5 +1,5 @@
 
-//整除分块 复杂度O 根n
+//鏁撮櫎鍒嗗潡 澶嶆潅搴 鏍筺
 long long fenkuai(long long n) {
     long long ans = 0;
     for (long long l = 1, r; l <= n; l = r + 1) {

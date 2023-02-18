@@ -2,7 +2,7 @@
 using namespace std;
 #define int long long
 #define double long double
-//¸ß¾«¶È
+// é«˜ç²¾åº¦
 typedef long long ll;
 
 const int inf = 0x7fffffff;
@@ -16,7 +16,7 @@ const int mod2 = 998244353;
 
 struct Point {
     int x, y;
-    Point(double x = 0, double y = 0) : x(x), y(y) {}  //¹¹Ôìº¯Êı
+    Point(double x = 0, double y = 0) : x(x), y(y) {}  // æ„é€ å‡½æ•°
 };
 typedef Point Vector;
 Vector operator+(Vector A, Vector B) {
@@ -46,11 +46,11 @@ bool operator==(const Point& a, const Point& b) {
 double Polar_angle(Vector A) {
     return atan2(A.y, A.x);
 }
-inline double D_to_R(double D)  //½Ç¶È×ª»¡¶È
+inline double D_to_R(double D)  // è§’åº¦è½¬å¼§åº¦
 {
     return PI / 180 * D;
 }
-//ÓÒÊÖ¶¨Ôò£¬´ÓµÚÒ»¸ö×ªµ½µÚ¶ş¸öÏòÉÏÎªÕıÏòÏÂÎª¸º
+// å³æ‰‹å®šåˆ™ï¼Œä»ç¬¬ä¸€ä¸ªè½¬åˆ°ç¬¬äºŒä¸ªå‘ä¸Šä¸ºæ­£å‘ä¸‹ä¸ºè´Ÿ
 double Cross(Vector A, Vector B) {
     return A.x * B.y - B.x * A.y;
 }
@@ -86,8 +86,8 @@ int read() {
 Point p[maxn], ch[maxn];
 int n, m, x, y, z, k, t1, t2, op, ans, flagg, cnt, tot;
 
-// !!!×¢Òâµ±ÊıÖµ´ïµ½Ò»¶¨³Ì¶ÈÊ±±ØĞë¸ÄÓÃlonglong¶ø²»ÊÇdouble£¬doubleº¬ÓĞĞ§Î»
-// ÓÃ¿ì½İ¼ü£¬»òÈ«¾ÖÌæ»»½«double »»³Éint (¼´long long )
+// !!!æ³¨æ„å½“æ•°å€¼è¾¾åˆ°ä¸€å®šç¨‹åº¦æ—¶å¿…é¡»æ”¹ç”¨longlongè€Œä¸æ˜¯doubleï¼Œdoubleå«æœ‰æ•ˆä½
+// ç”¨å¿«æ·é”®ï¼Œæˆ–å…¨å±€æ›¿æ¢å°†double æ¢æˆint (å³long long )
 signed main() {
     // ios::sync_with_stdio(0);
 

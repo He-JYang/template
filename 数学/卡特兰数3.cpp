@@ -1,21 +1,21 @@
 #include <cstdio>
-#include <cstring>  //ÎªÁËNOIP²»ÓÃÍòÄÜÍ·ÎÄ¼ş
+#include <cstring>  //ä¸ºäº†NOIPä¸ç”¨ä¸‡èƒ½å¤´æ–‡ä»¶
 #include <iostream>
 using namespace std;
 
 //
-int f[20][20];  //Êı¾İ¾Í¸øµ½18£¬¿ª¸ö20Ëã´ó·½µÄ
+int f[20][20];  //æ•°æ®å°±ç»™åˆ°18ï¼Œå¼€ä¸ª20ç®—å¤§æ–¹çš„
 int n;
 int catalan(int n) {
     memset(f, 0, sizeof(f));
     for (int i = 0; i <= n; i++)
-        f[i][0] = 1;  //±ß½çÒ»¶¨ÒªÓĞ
+        f[i][0] = 1;  //è¾¹ç•Œä¸€å®šè¦æœ‰
     for (int j = 1; j <= n; j++)
         for (int i = 0; i <= n; i++)
-        //ÎÒÃÇÒªÍÆf[0][n]£¬ËùÒÔiÒª´ÓÁã¿ªÊ¼ÅÜ
+        //æˆ‘ä»¬è¦æ¨f[0][n]ï¼Œæ‰€ä»¥iè¦ä»é›¶å¼€å§‹è·‘
         {
             if (i >= 1) f[i][j] = f[i - 1][j] + f[i + 1][j - 1];
-            if (i == 0)  //Õ»ÄÚÃ»ÓĞ¶«Î÷
+            if (i == 0)  //æ ˆå†…æ²¡æœ‰ä¸œè¥¿
                 f[i][j] = f[i + 1][j - 1];
         }
     return f[0][n];

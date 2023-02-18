@@ -32,10 +32,10 @@ int nixu(int a[], int n) {
 
     sort(v1.begin(), v1.end());
     for (int i = 1; i <= n; ++i)
-        reflect[v1[i - 1].second] = i;  //ÀëÉ¢»¯
+        reflect[v1[i - 1].second] = i;  //ç¦»æ•£åŒ–
 
     for (int i = 1; i <= n; ++i)
-        sum0[i] = 0;  //³õÊ¼»¯Ê÷×´Êý×é
+        sum0[i] = 0;  //åˆå§‹åŒ–æ ‘çŠ¶æ•°ç»„
     long long ans = 0;
     for (int i = 1; i <= n; ++i) {
         update(reflect[i], n);

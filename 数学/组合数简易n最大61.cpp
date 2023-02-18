@@ -2,7 +2,7 @@
 using namespace std;
 #define int long long
 
-int C(int a, int b) {  //¼òÒ×°æC×î´ó61¼´longlong·¶Î§ÄÚËùÓÐÊý
+int C(int a, int b) {  //ç®€æ˜“ç‰ˆCæœ€å¤§61å³longlongèŒƒå›´å†…æ‰€æœ‰æ•°
     int mul = 1;
     int dev = 1;
     if (b >= a + 1 / 2) b = a - b;

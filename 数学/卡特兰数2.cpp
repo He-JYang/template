@@ -1,4 +1,4 @@
-//¼ÇÒä»¯ËÑË÷/µİ¹é ×ö·¨
+//è®°å¿†åŒ–æœç´¢/é€’å½’ åšæ³•
 #include <cstdio>
 #define MAX_N 20
 #define ll long long
@@ -9,7 +9,7 @@ int n;
 ll f[MAX_N][MAX_N];
 ll dfs(int i, int j) {
     if (f[i][j]) return f[i][j];
-    if (i == 0) return 1;  //±ß½ç
+    if (i == 0) return 1;  //è¾¹ç•Œ
     if (j > 0) f[i][j] += dfs(i, j - 1);
     f[i][j] += dfs(i - 1, j + 1);
     return f[i][j];
@@ -18,7 +18,7 @@ int catalan_1(int n) {
     return dfs(n, 0);
 }
 
-//µİ¹é×ªµİÍÆ  µİÍÆ×ö·¨
+//é€’å½’è½¬é€’æ¨  é€’æ¨åšæ³•
 #include <cstdio>
 #define MAX_N 20
 #define ll long long

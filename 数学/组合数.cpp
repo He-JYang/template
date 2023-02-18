@@ -13,7 +13,7 @@ int qpow(int a, int b, int p = mod) {
     return res;
 }
 
-//¼ÆËãint·¶Î§×éºÏÊı
+//è®¡ç®—intèŒƒå›´ç»„åˆæ•°
 int C(int a, int b, int p = mod) {
     if (a < b) return 0;
 
@@ -25,7 +25,7 @@ int C(int a, int b, int p = mod) {
     return up * qpow(down, p - 2, p) % p;
 }
 
-//¼ÆËã¶ÔÖÊÊıÈ¡Ä£´ó·¶Î§×éºÏÊı  /***µ÷ÓÃÕâ¸ö***/
+//è®¡ç®—å¯¹è´¨æ•°å–æ¨¡å¤§èŒƒå›´ç»„åˆæ•°  /***è°ƒç”¨è¿™ä¸ª***/
 int lucas(int a, int b, int p = mod) {
     if (a < p && b < p) return C(a, b, p);
     return C(a % p, b % p, p) * lucas(a / p, b / p, p) % p;

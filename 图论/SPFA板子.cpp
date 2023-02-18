@@ -9,7 +9,7 @@ struct Node {
 int head[N], vis[N];
 
 /*** SPFA(shortest path faster algorithm) ***/
-// ĞşÑ§£ºO(n ~ n*m)²»µÈ
+// ç„å­¦ï¼šO(n ~ n*m)ä¸ç­‰
 //
 int dis[N], in[N];
 
@@ -24,7 +24,7 @@ bool spfa(int start, int n) {
     while (!q1.empty()) {
         int u = q1.front();
         q1.pop();
-        vis[u] = 0;  // vis±íÊ¾ÊÇ·ñÔÚ¶ÓÁĞÖĞ
+        vis[u] = 0;  // visè¡¨ç¤ºæ˜¯å¦åœ¨é˜Ÿåˆ—ä¸­
         for (int i = head[u]; i; i = node[i].next) {
             int to = node[i].to;
             int w = node[i].w;
@@ -35,7 +35,7 @@ bool spfa(int start, int n) {
                     q1.push(to);
                     vis[to] = 1;
                     in[to]++;
-                    if (in[to] > n) return false;  // ÈôÒ»¸öµãÈë¶Ó³¬¹ın´ÎÔò´æÔÚ¸ºÈ¨»·
+                    if (in[to] > n) return false;  // è‹¥ä¸€ä¸ªç‚¹å…¥é˜Ÿè¶…è¿‡næ¬¡åˆ™å­˜åœ¨è´Ÿæƒç¯
                 }
             }
         }

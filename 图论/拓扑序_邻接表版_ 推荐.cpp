@@ -1,4 +1,4 @@
-// ÁÚ½Ó±í½¨Í¼°æ
+// é‚»æ¥è¡¨å»ºå›¾ç‰ˆ
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -8,13 +8,13 @@ struct Node {
     int to, next;
 } node[N];
 
-int n;  //½ÚµãÊı
+int n;  //èŠ‚ç‚¹æ•°
 int head[N], tot;
-int ind[N];  //Èë¶È  in degree Ö±ÒëÈë¶È
-int out[N];  //³ö¶È
+int ind[N];  //å…¥åº¦  in degree ç›´è¯‘å…¥åº¦
+int out[N];  //å‡ºåº¦
 int topolist[N];
 queue<int> q;
-void toposort() {  // ¼´bfs
+void toposort() {  // å³bfs
     int pos = 1;
     for (int i = 1; i <= n; i++) {
         if (!ind[i]) {
