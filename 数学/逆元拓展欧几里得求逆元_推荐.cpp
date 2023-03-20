@@ -1,6 +1,8 @@
 // O(log(n))
 // 拓展欧几里得x为a的逆元b为模,x,y不用初始化什么值都可以
 // 一个数与0的最小公倍数是其本身
+
+// 注：逆元存在的条件gcd(a,mod)=1
 int exgcd(int a, int b, int& x, int& y) {
     if (!b) {
         x = 1, y = 0;
