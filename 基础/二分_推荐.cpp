@@ -5,10 +5,12 @@ bool check(int x) {
     ;
 }
 
+// 对n个数进行二分可能的返回值有n+1个其中第n+1个为ans的初值
+// mid 会取遍l，r的所有值含端点,ans=初值是默认值一般设为 l-1或r+1
 // 带不带等号由check函数决定
 // 必要条件在右区间的示例如下
 // 必要条件在左区间将注释的两行交换
-int binsearch(int l = 0, int r = n, int a[]) {  //搜索范围l~r
+int binsearch(int l = 1, int r = n, int a[]) {  // 搜索范围l~r
     int ans = -1;                               // 搜索不到结果时的返回值
     while (l <= r) {
         int mid = (l + r) / 2;
