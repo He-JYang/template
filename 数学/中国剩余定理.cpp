@@ -6,7 +6,7 @@ typedef long long ll;
 //
 
 const int N = 15;
-int n, c[N], d[N];
+int n, a[N], mods[N];
 
 int exgcd(int a, int b, int& x, int& y) {
     if (!b) {
@@ -29,19 +29,24 @@ inline ll crt()  // CRT
 {
     ll prod = 1, ans = 0;
     for (int i = 1; i <= n; ++i)
-        prod *= d[i];
+        prod *= mods[i];
     ll tmp;
     for (int i = 1; i <= n; ++i) {
-        tmp = prod / d[i];
-        ans += (inv(tmp, d[i]) * c[i] * tmp) % prod;
+        tmp = prod / mods[i];
+        ans += (inv(tmp, mods[i]) * a[i] * tmp) % prod;
     }
     return ans % prod;
 }
-void example() {
-    int n;
+/*
+    a[i]为每个方程式的余数
+    mods[i]为每个方程的模数
+    使用条件为所有mods[i]互质
+ */
+signed example() {
     cin >> n;
 
     for (int i = 1; i <= n; ++i)
-        cin >> d[i] >> c[i];
+        cin >> a[i] >> mods[i];
     int ans = crt();
+    cout << ans;
 }
