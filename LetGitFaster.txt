@@ -18,5 +18,10 @@ git config --global https.https://github.com.proxy http://127.0.0.1:9418
 git config --global http.https://github.com.proxy http://127.0.0.1:33210
 git config --global https.https://github.com.proxy http://127.0.0.1:33210
 
+git config --global http.https://github.com.proxy http://127.0.0.1:YOUR_VPN_HTTP_PORT
+git config --global https.https://github.com.proxy http://127.0.0.1:YOUR_VPN_HTTP_PORT
+
+注意：一定要写成自己梯子的http或https端口号，那上面的是我梯子的，不同梯子端口号不同
+
 参考链接
 https://segmentfault.com/a/1190000039069766
