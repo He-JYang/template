@@ -6,10 +6,10 @@
 
 using namespace std;
 
-signed main() {
-    int a;
-    return 0;
-}
+
+
+
+
 
 string preProcess(string s) {
     int n = s.length();
