@@ -6,7 +6,8 @@
 找到梯子的https代理端口号
 然后将git的代理修改为梯子的
 
-git默认端口号9418
+cmd中输入如下命令即可修改
+# git默认端口号9418
 
 git config --global http.https://github.com.proxy http://127.0.0.1:1235
 git config --global https.https://github.com.proxy http://127.0.0.1:1235
