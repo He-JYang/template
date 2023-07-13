@@ -2,10 +2,14 @@
 // https://zhuanlan.zhihu.com/p/70532099
 // 马拉车算法 Manacher‘s Algorithm 是用来查找一个字符串的最长回文子串的线性方法
 
-#include<bits/stdc++.h>
-
+#include <bits/stdc++.h>
 
 using namespace std;
+
+signed main() {
+    int a;
+    return 0;
+}
 
 string preProcess(string s) {
     int n = s.length();
