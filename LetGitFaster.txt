@@ -1,0 +1,21 @@
+尽管github很慢但我们依然在使用他
+为了获得更好的github体验，我们都在努力的寻找梯子和更好的加速方式
+
+在查阅资料后我使用了一个方法挺有效果的
+
+找到梯子的https代理端口号
+然后将git的代理修改为梯子的
+
+git默认端口号9418
+
+git config --global http.https://github.com.proxy http://127.0.0.1:1235
+git config --global https.https://github.com.proxy http://127.0.0.1:1235
+
+git config --global http.https://github.com.proxy http://127.0.0.1:9418
+git config --global https.https://github.com.proxy http://127.0.0.1:9418
+
+git config --global http.https://github.com.proxy http://127.0.0.1:33210
+git config --global https.https://github.com.proxy http://127.0.0.1:33210
+
+参考链接
+https://segmentfault.com/a/1190000039069766
