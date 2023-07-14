@@ -13,12 +13,14 @@ tree<int, null_type, less<int>, rb_tree_tag, tree_order_statistics_node_update> 
     less<int>从小到大排序
     rb_tree_tag 红黑树（splay_tree_tag）
     tree_order_statistics_node_update结点更新
+
     插入t.insert();
     删除t.erase();
-    求k在树中是第几大:t.order_of_key();
-    求树中的第k大:t.find_by_order();
-    前驱:t.lower_bound();
-    后继t.upper_bound();
+    求比x小的键的个数，注意x不一定是一个存在的键:t.order_of_key(x);
+    求树中的第k大:t.find_by_order(x);
+    前驱:*(--t.lower_bound(x));
+    后继:*(t.upper_bound(x));
+
     a.join(b)b并入a 前提是两棵树的key的取值范围不相交
     a.split(v,b)key小于等于v的元素属于a，其余的属于b
     T.lower_bound(x)   >=x的min的迭代器
