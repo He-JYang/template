@@ -7,14 +7,15 @@ int kmp[1000];
 
 // a[]从0开始有效
 void kmp_match(char a[], char b[]) {  // a为主串b为模式串 （简单点说a长，b短）
-    int j = -1;
     int la = strlen(a);
     int lb = strlen(b);
+    
     kmp[0] = -1;
+    int j = -1;
     for (int i = 1; i < lb; i++) {
         while (j != -1 && b[i] != b[j + 1])
             j = kmp[j];
-        //此处判断j是否为0的原因在于，如果回跳到第一个字符就不 用再回跳了
+        //此处判断j是否为0的原因在于，如果回跳到第一个字符就不用再回跳了
         //通过自己匹配自己来得出每一个点的kmp值
         if (b[j + 1] == b[i]) j++;
         kmp[i] = j;
