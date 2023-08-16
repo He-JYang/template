@@ -7,6 +7,8 @@ const int N = 1e5 + 10;
 int n;
 int tree[N];
 
+// 有效范围是1~n 0是不能用的
+
 inline void update(int pos, int x) {  //单点pos增加x   pos!=0 否则会段错误
     for (int i = pos; i <= n; i += lowbit(i)) {
         tree[i] += x;
